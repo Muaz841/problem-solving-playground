@@ -1,0 +1,38 @@
+using System;
+
+public class HelloWorld
+{
+    public static void KRadiusSubArray(int[] array, int k)
+    {
+        int[] ResultArray = new int[array.Length];
+           int kradius = 2*k +1;
+        for(int i = 0 ; i < array.Length ; i++)
+         {
+             int sum = 0; int average = 0;
+             if(i < k  ||  i + k >= array.Length)
+             {
+                 ResultArray [i] = -1;
+                 continue;
+             }
+             
+             for(int j = i - k; j <= i+k; j++)
+             {
+                 sum += array[j]; 
+             }
+          
+             average = sum / kradius;
+             ResultArray[i] = average;
+         }
+         foreach(var x in ResultArray)
+         {
+             Console.WriteLine($"avg {x}  ");
+         }
+    }
+    
+    public static void Main(string[] args)
+    {
+       int[] array = {7,4,3,9,1,8,5,2,6};
+       int k  = 3;
+       KRadiusSubArray(array,  k);
+    }
+}
