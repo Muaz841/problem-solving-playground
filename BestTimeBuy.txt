@@ -1,0 +1,38 @@
+using System;
+
+public class HelloWorld
+{
+    
+    public static void BestTimeBuy(int[] array)
+{
+    int minValue = int.MaxValue;
+    int day1= 0 ; int day2 = 0; int maxProfit = 0;
+    {
+        for(int i = 0; i<array.Length; i++)
+        {
+            if(array[i] < minValue)
+            {
+                minValue = array[i];
+                day1 = i;
+            }
+            int profit = array[i] - minValue;
+            
+            if(profit > maxProfit)
+            {
+                day2 = i;
+                maxProfit = profit;
+            }
+        }
+        if(maxProfit > 0)
+        {
+            Console.WriteLine($"buy at day {day1}  sale at {day2} profit  will be {maxProfit}");
+        }
+    }
+        
+}
+    public static void Main(string[] args)
+    {
+        int[]  array = {8,1,4,6,1};
+        BestTimeBuy(array);
+    }
+}
