@@ -1,0 +1,30 @@
+using System;
+
+public class HelloWorld
+{
+    
+    public static void HighestAltitude(int[] array)
+{
+    int Highest = 0;
+    int   currentAltitude = 0;
+    
+    for(int i = 0; i < array.Length ; i++)
+    {
+       currentAltitude +=  array[i];
+       
+       if(currentAltitude > Highest)
+       {
+           Highest  = currentAltitude;
+       }
+    }
+    
+
+    Console.WriteLine($"highest-Altitude: {Highest}");
+}
+
+    public static void Main(string[] args)
+    {
+        int[] array = {-5,1,5,0,-7};
+        HighestAltitude(array);
+    }
+}
